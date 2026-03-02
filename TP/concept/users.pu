@@ -1,0 +1,18 @@
+@startuml
+
+class User {
+    username
+    authenticate()
+    request_access()
+}
+
+class Workstation {
+    hostname
+    ip_address
+    login()
+    run_application()
+}
+
+User --> Workstation
+
+@enduml

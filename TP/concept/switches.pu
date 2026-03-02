@@ -1,0 +1,41 @@
+@startuml
+
+
+class EthernetFrame {
+    src_mac
+    dst_mac
+    encapsulate()
+}
+
+class IPPacket {
+    src_ip
+    dst_ip
+    route()
+}
+
+EthernetFrame --> IPPacket
+
+
+class InformationSystem {
+    send_data()
+    receive_data()
+}
+
+class SwitchL2 {
+    forward_frame()
+    manage_vlan()
+}
+
+class SwitchL3 {
+    route_packet()
+}
+
+SwitchL2 <|-- SwitchL3
+
+
+
+InformationSystem --> EthernetFrame
+SwitchL2 --> EthernetFrame
+SwitchL3 --> IPPacket
+
+@enduml
